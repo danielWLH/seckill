@@ -1,0 +1,41 @@
+imooc 网上课程: http://www.imooc.com/u/2145618/courses?sort=publish
+
+step1: 使用maven命令生成项目
+mvn archetype:generate -DgroupId=org.seckill -DartifactId=seckill -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeCatalog=local
+
+
+step2:
+DAO层开发
+    SPRING-DAO.XML      --> jdbc参数文件位置指定,连接池bean对象定义,注入sqlSessionFactory对象,指定扫描包. uriIsNotRegistered: https://blog.csdn.net/matthew_zhang/article/details/50757251
+    org.seckill.dao     --> 接口开发
+    org.seckill.entity  --> DO对象开发
+junit test
+    修改pom文件,添加依赖: junit, 日志依赖,
+
+step3:
+SERVICE层开发
+    SPRING-SERVICE.XML       --> 包扫描配置,事务管理配置
+    org.seckill.service      --> 接口开发
+    org.seckill.service.impl --> 接口实现开发
+    logger 配置              --> logback.xml
+    junit test
+
+step4:
+WEB层开发
+    WEB.XML                 --> 配置DispatcherServlet,配置init-param,配置servlet-mapping
+    SPRING-WEB.XML          --> 配置SpringMVC, 静态资源默认servlet配置, 配置jsp限制viewResolver, 扫描web相关的bean
+    org.seckill.web.*Controller
+    seckill.js
+
+step5:
+    配置runConfig, new tomcat server
+
+启动:
+    http://localhost:8080/seckill/list
+
+报错404:
+    检查url是否正确
+    检查web.xml
+    检查spring-web.xml
+    检查controller是否正确
+    检查requestMapping是否正确
