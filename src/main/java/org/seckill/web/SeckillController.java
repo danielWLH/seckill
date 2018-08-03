@@ -40,7 +40,8 @@ public class SeckillController {
         List<Seckill> list = seckillService.getSeckillList();
         model.addAttribute("list", list);
         //list.jsp + model = ModelAndView
-        return "list";  // == WEB-INF/jsp/list.jsp
+        //WEB-INF/jsp/list.jsp
+        return "list";
     }
 
     @RequestMapping(value = "/{seckillId}/detail", method = RequestMethod.GET)

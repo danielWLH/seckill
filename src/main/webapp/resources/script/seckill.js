@@ -44,6 +44,8 @@ var seckill = {
                                 var stateInfo = killResult['stateInfo'];
                                 //显示秒杀结果
                                 node.html('<span class="label label-success">' + stateInfo + '</span>');
+                            }else{
+                                node.html('<span class="label label-error">' + result['data']['stateInfo'] + '</span>');
                             }
                         })
                     });
@@ -72,7 +74,6 @@ var seckill = {
 
     //倒计时
     countDown : function(seckillId, nowTime, startTime, endTime){
-        debugger;
         var seckillBox = $('#seckill-box');
         //时间判断
         if(nowTime > endTime){

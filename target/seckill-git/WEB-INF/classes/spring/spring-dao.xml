@@ -45,4 +45,11 @@
         <!-- 需要扫描的dao接口的包 -->
         <property name="basePackage" value="org.seckill.dao" />
     </bean>
+
+    <!--5. redisDao 的bean对象要手动注入-->
+    <bean id="redisDao" class="org.seckill.dao.cache.RedisDao">
+        <!--使用构造函数注入-->
+        <constructor-arg index="0" value="localhost"/>
+        <constructor-arg index="1" value="6379"/>
+    </bean>
 </beans>

@@ -25,5 +25,3 @@
 		where sk.seckill_id = #{seckillId} and sk.user_phone = #{userPhone}
 	</select>
 </mapper>
-
-
